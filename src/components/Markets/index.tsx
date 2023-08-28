@@ -1,6 +1,9 @@
 export default function Markets() {
   return (
-    <section className="bg-background flex items-center justify-center py-16">
+    <section
+      id={'markets'}
+      className="bg-background flex items-center justify-center py-16"
+    >
       <div className={'bg-main-color h-96 w-3/5 rounded-xl'}>
         <div className={'flex gap-4 p-4'}>
           <button
