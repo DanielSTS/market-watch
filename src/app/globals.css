@@ -6,3 +6,19 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+    transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0FAE96;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 10px;
+}

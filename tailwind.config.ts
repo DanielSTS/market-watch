@@ -11,7 +11,9 @@ const config: Config = {
       colors: {
         background: '#1C181F',
         main: '#252128',
-        green: '#0FAE96'
+        green: '#0FAE96',
+        greenHover: '#0E9386',
+        red: '#AE0000'
       }
     }
   },

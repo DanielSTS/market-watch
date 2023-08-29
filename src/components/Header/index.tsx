@@ -11,7 +11,7 @@ export default function Header() {
             <MenuItem href="/" label="Home" />
           </li>
           <li>
-            <MenuItem href="/#markets" label="Markets" />
+            <MenuItem href="/markets" label="Markets" />
           </li>
           <li>
             <MenuItem href="/#news" label="Notícias" />
