@@ -1,11 +1,16 @@
+'use client';
 import Image from 'next/image';
 import { PiArrowUpRightBold } from 'react-icons/pi';
+import Link from 'next/link';
+import { useCryptoContext } from '@/providers/CryptoProvider';
 
 interface CryptoSummaryProps {
-  crypto: string;
   ticker: string;
 }
-export default function CryptoSummary({ crypto, ticker }: CryptoSummaryProps) {
+
+export default function CryptoSummary({ ticker }: CryptoSummaryProps) {
+  const cryptoData = useCryptoContext();
+  const crypto = cryptoData.find(x => x.ticker === ticker);
   return (
     <div className="rounded-3xl bg-main flex flex-col px-3 pt-3 items-center justify-around">
       <div
@@ -15,8 +20,8 @@ export default function CryptoSummary({ crypto, ticker }: CryptoSummaryProps) {
       >
         <Image
           className={'w-11 h-11'}
-          src={`${ticker}.svg`}
-          alt="Logo"
+          src={crypto?.image || ''}
+          alt={crypto?.ticker || ''}
           width={140}
           height={140}
         />
@@ -26,24 +31,28 @@ export default function CryptoSummary({ crypto, ticker }: CryptoSummaryProps) {
             'rounded-2xl bg-zinc-600 px-2.5 py-1  text-xs font-semibold'
           }
         >
-          {crypto}
+          {crypto?.name}
         </span>
-        <button>
+        <Link href={'markets'}>
           <PiArrowUpRightBold
-            className={'w-6 h-6 text-zinc-500 hover:text-zinc-400'}
+            className={
+              'w-6 h-6 text-zinc-500 hover:text-zinc-400 shadow-md transition duration-300'
+            }
           />
-        </button>
+        </Link>
       </div>
 
       <div className={'flex items-center gap-8 justify-between'}>
         <div>
-          <p className={'text-2xl'}>$56,623.54</p>
-          <p className={'text-base text-zinc-400'}>1.41%</p>
+          <p className={'text-2xl'}>{crypto?.price}</p>
+          <p className={'text-base text-zinc-400'}>{crypto?.change}%</p>
         </div>
 
         <Image
           className={'w-24 h-24'}
-          src={'chart.svg'}
+          src={`${
+            crypto?.change && crypto.change < 0 ? 'chart2.svg' : 'chart.svg'
+          }`}
           alt="Logo"
           width={140}
           height={140}

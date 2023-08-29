@@ -14,7 +14,7 @@ export default function Header() {
             <MenuItem href="/markets" label="Markets" />
           </li>
           <li>
-            <MenuItem href="/#news" label="Notícias" />
+            <MenuItem href="/#news" label="News" />
           </li>
         </ul>
       </nav>

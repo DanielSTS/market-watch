@@ -1,4 +1,5 @@
 import MarketsPreview from '@/components/MarketsPreview';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -14,13 +15,14 @@ export default function Home() {
           notícias e mais. Explore o mundo das criptos com facilidade.
         </p>
 
-        <button
+        <Link
+          href={'markets'}
           className={
-            'bg-green rounded-2xl px-12 py-3 text-xl font-semibold mt-12'
+            'bg-green rounded-2xl px-12 py-3 text-xl font-semibold mt-12 hover:bg-greenHover shadow-md transition duration-300'
           }
         >
           Explorar
-        </button>
+        </Link>
       </section>
       <MarketsPreview />
     </>

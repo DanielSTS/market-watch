@@ -15,7 +15,9 @@ export default function MenuItem({ href, label }: MenuItemProps) {
     <Link
       href={href}
       className={`${
-        isActive ? 'text-green' : 'hover:text-green text-white'
+        isActive
+          ? 'text-green'
+          : 'text-white hover:text-greenHover shadow-md transition duration-300'
       } p-4 text-xl font-semibold font-normal`}
     >
       {label}
