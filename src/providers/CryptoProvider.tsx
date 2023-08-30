@@ -21,6 +21,7 @@ type CryptocurrencyData = {
   marketCap: number;
   image: string;
   ticker: string;
+  prices: number[];
 };
 
 function createData(
@@ -29,9 +30,10 @@ function createData(
   change: number,
   marketCap: number,
   image: string,
-  ticker: string
+  ticker: string,
+  prices: number[]
 ): CryptocurrencyData {
-  return { id: name, name, price, change, marketCap, image, ticker };
+  return { id: name, name, price, change, marketCap, image, ticker, prices };
 }
 
 type CryptoProviderProps = {
@@ -44,7 +46,7 @@ export function CryptoProvider({ children }: CryptoProviderProps) {
   useEffect(() => {
     async function fetchData() {
       await fetch(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc'
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&sparkline=true'
       )
         .then(response => response.json())
         .then(data => {
@@ -55,7 +57,8 @@ export function CryptoProvider({ children }: CryptoProviderProps) {
               parseFloat(item.price_change_percentage_24h),
               parseFloat(item.market_cap),
               item.image,
-              item.symbol
+              item.symbol,
+              item.sparkline_in_7d.price.map((x: string) => parseFloat(x))
             )
           );
           setCryptoData(formattedData);

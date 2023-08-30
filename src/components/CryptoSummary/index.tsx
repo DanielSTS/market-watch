@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { PiArrowUpRightBold } from 'react-icons/pi';
 import Link from 'next/link';
 import { useCryptoContext } from '@/providers/CryptoProvider';
+import Chart from '@/components/Chart';
 
 interface CryptoSummaryProps {
   ticker: string;
@@ -42,21 +43,20 @@ export default function CryptoSummary({ ticker }: CryptoSummaryProps) {
         </Link>
       </div>
 
-      <div className={'flex items-center gap-8 justify-between'}>
+      <div className={'flex items-center gap-8 justify-between p-4'}>
         <div>
           <p className={'text-2xl'}>{crypto?.price}</p>
           <p className={'text-base text-zinc-400'}>{crypto?.change}%</p>
         </div>
 
-        <Image
-          className={'w-24 h-24'}
-          src={`${
-            crypto?.change && crypto.change < 0 ? 'chart2.svg' : 'chart.svg'
-          }`}
-          alt="Logo"
-          width={140}
-          height={140}
-        />
+        {crypto && (
+          <Chart
+            prices={crypto.prices}
+            height={50}
+            width={100}
+            isHigh={crypto.change > 0}
+          />
+        )}
       </div>
     </div>
   );

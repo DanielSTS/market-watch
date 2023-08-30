@@ -19,7 +19,7 @@ export default function MarketsPreview() {
         <CryptoSummary ticker={'btc'} />
         <CryptoSummary ticker={'eth'} />
         <CryptoSummary ticker={'xrp'} />
-        <CryptoSummary ticker={'ltc'} />
+        <CryptoSummary ticker={'dai'} />
       </div>
     </section>
   );
