@@ -1,14 +1,48 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCryptoContext } from '@/contexts/CryptoContext';
+import { CryptocurrencyData, useCryptoContext } from '@/contexts/CryptoContext';
 import { PiArrowRightBold } from 'react-icons/pi';
 import Chart from '@/components/Chart';
+import Pagination from '@/components/Pagination';
+import { useEffect, useState } from 'react';
 
+const LIMIT = 5;
 export default function Markets() {
   const cryptoData = useCryptoContext();
+  const [currentCryptoData, setCurrentCryptoData] = useState<
+    CryptocurrencyData[]
+  >([]);
+  const [filteredCryptoData, setFilteredCryptoData] = useState<
+    CryptocurrencyData[]
+  >([]);
+  const [offset, setOffset] = useState<number>(0);
+  const [text, setText] = useState<string>('');
+
+  useEffect(() => {
+    const filteredData = cryptoData.filter(
+      crypto =>
+        crypto.name.toLowerCase().includes(text.toLowerCase()) ||
+        crypto.ticker.toLowerCase().includes(text.toLowerCase())
+    );
+
+    const startIndex = offset;
+    const endIndex = startIndex + LIMIT;
+    const paginatedData = filteredData.slice(startIndex, endIndex);
+
+    setCurrentCryptoData(paginatedData);
+    setFilteredCryptoData(filteredData);
+  }, [text, offset, cryptoData]);
+
   return (
-    <section className="py-12">
+    <section className="py-12 flex flex-col gap-6">
+      <input
+        type="text"
+        placeholder="Search crypto..."
+        value={text}
+        onChange={search => setText(search.target.value)}
+        className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 w-full text-zinc-700"
+      />
       <div className="overflow-x-auto rounded-lg border-2 border-zinc-800">
         <table className="table-auto text-zinc-300 w-full min-w-max bg-main overflow-hidden">
           <thead>
@@ -23,12 +57,12 @@ export default function Markets() {
             </tr>
           </thead>
           <tbody>
-            {cryptoData.map((crypto, index) => (
+            {currentCryptoData.map((crypto, index) => (
               <tr
                 key={crypto.id}
                 className="bg-main rounded-2xl border-t-2 border-b-2 border-zinc-800 last:border-none"
               >
-                <td className="text-center">{index + 1}</td>
+                <td className="text-center">{crypto.market_cap_rank}</td>
                 <td className="p-4">
                   <div className="flex items-center gap-3">
                     <Image
@@ -75,6 +109,12 @@ export default function Markets() {
           </tbody>
         </table>
       </div>
+      <Pagination
+        limit={LIMIT}
+        total={filteredCryptoData.length}
+        offset={offset}
+        setOffset={setOffset}
+      />
     </section>
   );
 }

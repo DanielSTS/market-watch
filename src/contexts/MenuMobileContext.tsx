@@ -5,7 +5,6 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
-  useEffect,
   useState
 } from 'react';
 
@@ -28,9 +27,6 @@ export function MenuMobileContextProvider({
   children
 }: MenuMobileProviderProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  useEffect(() => {
-    document.body.style.overflowY = isVisible ? 'hidden' : 'auto';
-  }, [isVisible]);
   return (
     <MenuMobileContext.Provider value={{ isVisible, setIsVisible }}>
       {children}

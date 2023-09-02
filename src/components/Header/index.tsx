@@ -4,9 +4,13 @@ import Image from 'next/image';
 import { useMenuMobileContext } from '@/contexts/MenuMobileContext';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { CgClose } from 'react-icons/cg';
+import { useEffect } from 'react';
 
 export default function Header() {
   const { isVisible, setIsVisible } = useMenuMobileContext();
+  useEffect(() => {
+    document.body.style.overflowY = isVisible ? 'hidden' : 'auto';
+  }, [isVisible]);
   return (
     <header className="flex items-center justify-between py-4 bg-background">
       <Image src={'logo.svg'} alt="Logo" width={176} height={40} />
