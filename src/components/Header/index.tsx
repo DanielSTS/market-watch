@@ -36,7 +36,7 @@ export default function Header() {
           {isVisible ? <CgClose /> : <GiHamburgerMenu />}
         </button>
         {isVisible && (
-          <ul className="w-full h-screen bg-background fixed top-12 left-0 flex flex-col items-center justify-center gap-8">
+          <ul className="w-full h-[calc(100vh-48px)] bg-background fixed top-12 left-0 flex flex-col items-center justify-center gap-9">
             <li>
               <MenuItem href="/" label="Home" />
             </li>
