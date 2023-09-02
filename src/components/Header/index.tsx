@@ -25,7 +25,7 @@ export default function Header() {
 
         <button
           className={`md:hidden text-white ${
-            isVisible ? 'fixed top-6 right-7 z-10' : ''
+            isVisible ? 'fixed top-6 right-6 z-10' : ''
           }`}
           onClick={() => setIsVisible(prev => !prev)}
         >
