@@ -40,7 +40,7 @@ type CryptoProviderProps = {
   children: ReactNode;
 };
 
-export function CryptoProvider({ children }: CryptoProviderProps) {
+export function CryptoContextProvider({ children }: CryptoProviderProps) {
   const [cryptoData, setCryptoData] = useState<CryptocurrencyData[]>([]);
 
   useEffect(() => {

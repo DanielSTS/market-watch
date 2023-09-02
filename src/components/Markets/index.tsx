@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCryptoContext } from '@/providers/CryptoProvider';
+import { useCryptoContext } from '@/contexts/CryptoContext';
 import { PiArrowRightBold } from 'react-icons/pi';
 import Chart from '@/components/Chart';
 

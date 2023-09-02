@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { PiArrowUpRightBold } from 'react-icons/pi';
 import Link from 'next/link';
-import { useCryptoContext } from '@/providers/CryptoProvider';
+import { useCryptoContext } from '@/contexts/CryptoContext';
 import Chart from '@/components/Chart';
 
 interface CryptoSummaryProps {

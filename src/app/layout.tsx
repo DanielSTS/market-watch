@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import { Raleway } from 'next/font/google';
 import Footer from '@/components/Footer';
-import { CryptoProvider } from '@/providers/CryptoProvider';
+import { MenuMobileContextProvider } from '@/contexts/MenuMobileContext';
+import { CryptoContextProvider } from '@/contexts/CryptoContext';
 
 const raleway = Raleway({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -20,8 +21,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           'bg-background text-white px-6 md:px-24 mx-auto xl:max-w-screen-2xl'
         }
       >
-        <Header />
-        <CryptoProvider>{children}</CryptoProvider>
+        <MenuMobileContextProvider>{<Header />}</MenuMobileContextProvider>
+        <CryptoContextProvider>{children}</CryptoContextProvider>
         <Footer />
       </body>
     </html>
