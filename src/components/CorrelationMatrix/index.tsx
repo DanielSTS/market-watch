@@ -1,6 +1,18 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+export const assets = [
+  'BTC-USD',
+  'ETH-USD',
+  'XRP-USD',
+  'ADA-USD',
+  'DOGE-USD',
+  'SOL-USD',
+  'LTC-USD',
+  'MATIC-USD',
+  'SHIB-USD'
+];
+
 export default function CorrelationMatrix() {
   const [correlationMatrix, setCorrelationMatrix] = useState<
     Record<string, number>
@@ -16,16 +28,6 @@ export default function CorrelationMatrix() {
         console.error('Erro ao buscar a matriz de correlação:', error);
       });
   }, []);
-
-  const assets = [
-    'BTCUSDT',
-    'ETHUSDT',
-    'BNBUSDT',
-    'XRPUSDT',
-    'ADAUSDT',
-    'DOGEUSDT',
-    'SOLUSDT'
-  ];
 
   function getColorForCorrelation(correlation: number): string {
     if (correlation === 0) {
@@ -94,7 +96,7 @@ export default function CorrelationMatrix() {
                       }}
                       key={asset2}
                       className={
-                        'px-4 py-2 w-10 h-10 text-white' +
+                        'px-4 py-2 w-18 h-12 text-white' +
                         (index2 === 0 ? ' border-l-0' : '')
                       }
                     >
