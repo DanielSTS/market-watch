@@ -65,7 +65,7 @@ export default function CorrelationMatrix() {
                   key={asset}
                   className="px-4 py-2 bg-main text-white font-semibold"
                 >
-                  {asset}
+                  {asset.split('-')[0]}
                 </th>
               ))}
             </tr>
@@ -78,7 +78,7 @@ export default function CorrelationMatrix() {
                     index1 === 0 ? 'border-t-0' : ''
                   } font-semibold`}
                 >
-                  {asset1}
+                  {asset1.split('-')[0]}
                 </td>
                 {assets.map((asset2, index2) => {
                   const correlation =
@@ -96,7 +96,7 @@ export default function CorrelationMatrix() {
                       }}
                       key={asset2}
                       className={
-                        'px-4 py-2 w-18 h-12 text-white' +
+                        'px-4 py-2 w-20 h-12 text-white' +
                         (index2 === 0 ? ' border-l-0' : '')
                       }
                     >
