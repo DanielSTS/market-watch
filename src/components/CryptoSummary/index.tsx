@@ -27,17 +27,13 @@ export default function CryptoSummary({ ticker }: CryptoSummaryProps) {
           height={140}
         />
         <span className={'text-lg font-semibold'}>{ticker.toUpperCase()}</span>
-        <span
-          className={
-            'rounded-2xl bg-zinc-600 px-2.5 py-1  text-xs font-semibold'
-          }
-        >
-          {crypto?.name}
+        <span className={'rounded-2xl bg-zinc-600 px-2 py-0.5  text-xs'}>
+          {crypto?.name.toUpperCase()}
         </span>
         <Link href={'markets'}>
           <PiArrowUpRightBold
             className={
-              'w-6 h-6 text-zinc-500 hover:text-zinc-400 shadow-md transition duration-300'
+              'w-8 h-8 text-zinc-500 hover:text-zinc-400 hover:shadow-md hover:transition hover:duration-300 rounded-full p-1 bg-zinc-900'
             }
           />
         </Link>

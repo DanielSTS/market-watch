@@ -9,7 +9,7 @@ export default function MarketsPreview() {
         <Link
           href={'markets'}
           className={
-            'bg-green rounded-2xl px-4 py-1 text-sm font-semibold hover:bg-greenHover shadow-md transition duration-300'
+            'bg-green rounded-2xl px-4 py-1 text-sm font-semibold hover:bg-greenHover hover:shadow-md hover:transition hover:duration-300'
           }
         >
           Ver todos

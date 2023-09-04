@@ -82,7 +82,9 @@ export default function Markets() {
                 </td>
                 <td className="">{crypto.price}</td>
                 <td
-                  className={`${crypto.change < 0 ? 'text-red' : 'text-green'}`}
+                  className={`${
+                    crypto.change < 0 ? 'text-red' : 'text-green'
+                  } font-semibold`}
                 >
                   {crypto.change}%
                 </td>
@@ -99,7 +101,7 @@ export default function Markets() {
                   <Link href={'markets'}>
                     <PiArrowRightBold
                       className={
-                        'w-6 h-6 text-zinc-500 hover:text-zinc-400 shadow-md transition duration-300'
+                        'w-6 h-6 text-zinc-500 hover:text-zinc-400 hover:shadow-md hover:transition hover:duration-300'
                       }
                     />
                   </Link>
