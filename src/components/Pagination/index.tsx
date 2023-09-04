@@ -16,11 +16,14 @@ export default function Pagination({
   offset,
   setOffset
 }: PaginationProps) {
-  const current = offset ? offset / limit + 1 : 1;
   const pages = Math.ceil(total / limit);
+  const current = offset ? offset / limit + 1 : 1;
   const maxFirst = Math.max(pages - (MAX_ITEMS - 1), 1);
   const first = Math.min(Math.max(current - MAX_LEFT, 1), maxFirst);
 
+  if (current > pages) {
+    onPageChange(1);
+  }
   function onPageChange(page: number) {
     setOffset((page - 1) * limit);
   }
@@ -31,7 +34,7 @@ export default function Pagination({
         <button
           onClick={() => onPageChange(current - 1)}
           disabled={current === 1}
-          className="px-3 py-1 bg-zinc-300 text-zinc-700 rounded hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-600 disabled:text-zinc-900"
+          className="px-3 py-1 bg-zinc-300 text-zinc-700 rounded hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-500 disabled:text-zinc-900"
         >
           {'<'}
         </button>
@@ -56,7 +59,7 @@ export default function Pagination({
         <button
           onClick={() => onPageChange(current + 1)}
           disabled={current === pages}
-          className="px-3 py-1 bg-zinc-300 text-zinc-700 rounded hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-600 disabled:text-zinc-900"
+          className="px-3 py-1 bg-zinc-300 text-zinc-700 rounded hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-500 disabled:text-zinc-900"
         >
           {'>'}
         </button>

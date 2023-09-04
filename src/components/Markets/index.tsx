@@ -57,12 +57,12 @@ export default function Markets() {
             </tr>
           </thead>
           <tbody>
-            {currentCryptoData.map((crypto, index) => (
+            {currentCryptoData.map(crypto => (
               <tr
                 key={crypto.id}
                 className="bg-main rounded-2xl border-t-2 border-b-2 border-zinc-800 last:border-none"
               >
-                <td className="text-center">{crypto.market_cap_rank}</td>
+                <td className="text-center">{crypto.marketCapRank}</td>
                 <td className="p-4">
                   <div className="flex items-center gap-3">
                     <Image

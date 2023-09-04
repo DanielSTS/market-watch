@@ -23,7 +23,7 @@ export default function Header() {
             <MenuItem href="/markets" label="Markets" />
           </li>
           <li>
-            <MenuItem href="/#news" label="News" />
+            <MenuItem href="/correlation" label="Correlation" />
           </li>
         </ul>
 
