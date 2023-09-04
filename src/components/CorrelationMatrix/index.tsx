@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-export const assets = [
+const assets = [
   'BTC-USD',
   'ETH-USD',
   'XRP-USD',
@@ -10,7 +10,9 @@ export const assets = [
   'SOL-USD',
   'LTC-USD',
   'MATIC-USD',
-  'SHIB-USD'
+  'SHIB-USD',
+  'DOT-USD',
+  'LINK-USD'
 ];
 
 export default function CorrelationMatrix() {
@@ -56,7 +58,7 @@ export default function CorrelationMatrix() {
   return (
     <section className="py-12 flex items-center justify-center">
       <div className="overflow-x-auto rounded-lg border border-zinc-800">
-        <table className="table-fixed rounded-lg">
+        <table className="table-fixed rounded-lg text-center">
           <thead>
             <tr>
               <th className="px-4 py-2 bg-main text-white font-semibold"></th>
@@ -96,7 +98,7 @@ export default function CorrelationMatrix() {
                       }}
                       key={asset2}
                       className={
-                        'px-4 py-2 w-20 h-12 text-white' +
+                        'px-4 py-2 w-218 h-10 text-white' +
                         (index2 === 0 ? ' border-l-0' : '')
                       }
                     >

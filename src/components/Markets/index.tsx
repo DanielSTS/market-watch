@@ -90,12 +90,7 @@ export default function Markets() {
                 </td>
                 <td className="">${crypto.marketCap.toLocaleString()}</td>
                 <td className="">
-                  <Chart
-                    prices={crypto.prices}
-                    height={45}
-                    width={90}
-                    isHigh={crypto.change > 0}
-                  />
+                  <Chart prices={crypto.prices} height={45} width={90} />
                 </td>
                 <td className="">
                   <Link href={'markets'}>

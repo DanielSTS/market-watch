@@ -2,18 +2,13 @@ type ChartProps = {
   prices: number[];
   width: number;
   height: number;
-  isHigh: boolean;
 };
 
-export default function generateChartSvg({
-  prices,
-  width,
-  height,
-  isHigh
-}: ChartProps) {
+export default function Chart({ prices, width, height }: ChartProps) {
   const maxY = Math.max(...prices);
   const minY = Math.min(...prices);
   const xStep = width / (prices.length - 1);
+  const isHigh = prices[prices.length - 1] > prices[0];
 
   const points = prices
     .map(

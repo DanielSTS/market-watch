@@ -45,14 +45,7 @@ export default function CryptoSummary({ ticker }: CryptoSummaryProps) {
           <p className={'text-base text-zinc-400'}>{crypto?.change}%</p>
         </div>
 
-        {crypto && (
-          <Chart
-            prices={crypto.prices}
-            height={50}
-            width={100}
-            isHigh={crypto.change > 0}
-          />
-        )}
+        {crypto && <Chart prices={crypto.prices} height={50} width={100} />}
       </div>
     </div>
   );

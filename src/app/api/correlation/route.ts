@@ -8,9 +8,10 @@ export async function GET(request: Request) {
     'SOL-USD',
     'LTC-USD',
     'MATIC-USD',
-    'SHIB-USD'
+    'SHIB-USD',
+    'DOT-USD',
+    'LINK-USD'
   ];
-
   try {
     const correlations: Record<string, number> = {};
 
