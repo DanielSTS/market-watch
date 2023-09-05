@@ -9,7 +9,7 @@ import { CryptoContextProvider } from '@/contexts/CryptoContext';
 
 const raleway = Raleway({ subsets: ['latin'] });
 export const metadata: Metadata = {
-  title: 'Market Watch',
+  title: 'Crypto Wise',
   description: 'The best solution for market analysis.'
 };
 
