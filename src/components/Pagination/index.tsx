@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 
 const MAX_ITEMS = 9;
 const MAX_LEFT = (MAX_ITEMS - 1) / 2;
@@ -21,9 +21,11 @@ export default function Pagination({
   const maxFirst = Math.max(pages - (MAX_ITEMS - 1), 1);
   const first = Math.min(Math.max(current - MAX_LEFT, 1), maxFirst);
 
-  if (current > pages) {
-    onPageChange(1);
-  }
+  useEffect(() => {
+    if (current > pages) {
+      onPageChange(1);
+    }
+  }, [current, pages]);
   function onPageChange(page: number) {
     setOffset((page - 1) * limit);
   }
@@ -47,7 +49,7 @@ export default function Pagination({
               onClick={() => onPageChange(page)}
               className={`px-3 py-1 ${
                 page === current
-                  ? 'bg-green text-white'
+                  ? 'bg-greenMain text-white'
                   : 'bg-zinc-300 text-zinc-700'
               } hover:bg-greenHover hover:text-white rounded hover:transition hover:duration-300`}
             >

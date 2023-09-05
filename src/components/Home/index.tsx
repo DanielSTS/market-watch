@@ -18,7 +18,7 @@ export default function Home() {
         <Link
           href={'markets'}
           className={
-            'bg-green rounded-2xl px-12 py-3 text-xl font-semibold mt-12 hover:bg-greenHover hover:shadow-md hover:transition hover:duration-300'
+            'bg-greenMain rounded-2xl px-12 py-3 text-xl font-semibold mt-12 hover:bg-greenHover hover:shadow-md hover:transition hover:duration-300'
           }
         >
           Explorar

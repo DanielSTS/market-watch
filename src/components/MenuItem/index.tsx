@@ -18,7 +18,7 @@ export default function MenuItem({ href, label }: MenuItemProps) {
       href={href}
       className={`${
         isActive
-          ? 'text-green'
+          ? 'text-greenMain'
           : 'text-white no-underline hover:text-greenHover hover:transition hover:duration-300'
       } p-4 text-xl font-semibold`}
       onClick={() => setIsVisible(false)}

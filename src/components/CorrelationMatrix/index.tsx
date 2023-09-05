@@ -32,26 +32,32 @@ export default function CorrelationMatrix() {
   }, []);
 
   function getColorForCorrelation(correlation: number): string {
-    if (correlation === 0) {
-      return 'gray';
-    } else if (correlation > 0 && correlation <= 0.25) {
-      return '#006738';
-    } else if (correlation > 0.25 && correlation <= 0.5) {
-      return '#035934';
-    } else if (correlation > 0.5 && correlation <= 0.75) {
-      return '#083926';
-    } else if (correlation > 0.75 && correlation <= 1) {
-      return '#00A859';
-    } else if (correlation < 0 && correlation >= -0.25) {
-      return '#BB2528';
-    } else if (correlation < -0.25 && correlation >= -0.5) {
-      return '#D4413F';
-    } else if (correlation < -0.5 && correlation >= -0.75) {
-      return '#F3666A';
-    } else if (correlation < -0.75 && correlation >= -1) {
-      return '#FF8B80';
+    const shadesOfGreen = [
+      'bg-green-500',
+      'bg-green-600',
+      'bg-green-700',
+      'bg-green-800',
+      'bg-green-900'
+    ];
+
+    const shadesOfRed = [
+      'bg-red-500',
+      'bg-red-600',
+      'bg-red-700',
+      'bg-red-800',
+      'bg-red-900'
+    ];
+
+    if (correlation >= -1 && correlation <= 1) {
+      if (correlation >= 0) {
+        const index = Math.floor(correlation * shadesOfGreen.length);
+        return shadesOfGreen[index];
+      } else {
+        const index = Math.floor(Math.abs(correlation) * shadesOfRed.length);
+        return shadesOfRed[index];
+      }
     } else {
-      return 'gray';
+      return 'bg-gray-300';
     }
   }
 
@@ -89,17 +95,14 @@ export default function CorrelationMatrix() {
                       : correlationMatrix[`${asset1}/${asset2}`] ??
                         correlationMatrix[`${asset2}/${asset1}`];
 
-                  const cellColor = getColorForCorrelation(correlation);
-
                   return (
                     <td
-                      style={{
-                        backgroundColor: cellColor
-                      }}
                       key={asset2}
                       className={
                         'px-4 py-2 w-218 h-10 text-white' +
-                        (index2 === 0 ? ' border-l-0' : '')
+                        (index2 === 0 ? ' border-l-0 ' : '  ') +
+                        getColorForCorrelation(correlation) +
+                        ' hover:bg-opacity-70 hover:shadow-lg'
                       }
                     >
                       {correlation?.toFixed(2)}
