@@ -25,6 +25,9 @@ export default function Header() {
           <li>
             <MenuItem href="/correlation" label="Correlation" />
           </li>
+          <li>
+            <MenuItem href="/backtest" label="Backtest" />
+          </li>
         </ul>
 
         <button
