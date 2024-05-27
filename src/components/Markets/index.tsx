@@ -106,13 +106,13 @@ export default function Markets() {
   }
 
   return (
-    <section className="py-12 flex flex-col gap-6">
-      <div className="w-1/4 bg-main gap-2 flex rounded-md border-2 border-zinc-800 focus-within:ring-2 focus-within:ring-greenHover">
+    <section className="flex flex-col gap-6 py-12">
+      <div className="flex w-1/4 gap-2 rounded-md border-2 border-zinc-800 bg-main focus-within:ring-2 focus-within:ring-greenHover">
         <label htmlFor="cryptoSearch" className="sr-only">
           Search crypto
         </label>
         <BiSearch
-          className="w-7 h-7 text-zinc-500 hover:text-zinc-400 hover:shadow-md hover:transition hover:duration-300 p-1"
+          className="h-7 w-7 p-1 text-zinc-500 hover:text-zinc-400 hover:shadow-md hover:transition hover:duration-300"
           aria-hidden="true"
         />
         <input
@@ -121,16 +121,16 @@ export default function Markets() {
           placeholder="Search crypto..."
           value={text}
           onChange={e => setText(e.target.value)}
-          className="flex-grow text-zinc-300 bg-main focus:outline-none"
+          className="flex-grow bg-main text-zinc-300 focus:outline-none"
         />
       </div>
 
       <div className="overflow-x-auto rounded-lg border-2 border-zinc-800">
-        <table className="table-auto text-zinc-300 w-full min-w-max bg-main overflow-hidden">
+        <table className="w-full min-w-max table-auto overflow-hidden bg-main text-zinc-300">
           <thead>
             <tr className="text-left">
               <th
-                className="px-4 py-2 text-center font-semibold cursor-pointer"
+                className="cursor-pointer px-4 py-2 text-center font-semibold"
                 onClick={() => handleHeaderClick('marketCapRank')}
               >
                 Nº{' '}
@@ -138,53 +138,53 @@ export default function Markets() {
                   renderSortIcon('marketCapRank')}
               </th>
               <th
-                className="font-semibold cursor-pointer px-4 py-2"
+                className="cursor-pointer px-4 py-2 font-semibold"
                 onClick={() => handleHeaderClick('name')}
               >
                 Name {sortBy.column === 'name' && renderSortIcon('name')}
               </th>
               <th
-                className="font-semibold cursor-pointer text-right px-4 py-2"
+                className="cursor-pointer px-4 py-2 text-right font-semibold"
                 onClick={() => handleHeaderClick('price')}
               >
                 Price {sortBy.column === 'price' && renderSortIcon('price')}
               </th>
               <th
-                className="font-semibold cursor-pointer text-right px-4 py-2"
+                className="cursor-pointer px-4 py-2 text-right font-semibold"
                 onClick={() => handleHeaderClick('change')}
               >
                 Change 24h{' '}
                 {sortBy.column === 'change' && renderSortIcon('change')}
               </th>
               <th
-                className="font-semibold cursor-pointer text-right px-4 py-2"
+                className="cursor-pointer px-4 py-2 text-right font-semibold"
                 onClick={() => handleHeaderClick('marketCap')}
               >
                 Market Cap{' '}
                 {sortBy.column === 'marketCap' && renderSortIcon('marketCap')}
               </th>
               <th
-                className="font-semibold cursor-pointer text-center px-4 py-2"
+                className="cursor-pointer px-4 py-2 text-center font-semibold"
                 onClick={() => handleHeaderClick('prices')}
               >
                 7d {sortBy.column === 'prices' && renderSortIcon('prices')}
               </th>
-              <th className="font-semibold text-center px-4 py-2">Details</th>
+              <th className="px-4 py-2 text-center font-semibold">Details</th>
             </tr>
           </thead>
           <tbody>
             {currentCryptoData.map((crypto: CryptocurrencyData) => (
               <tr
                 key={crypto.id}
-                className="bg-main rounded-2xl border-t-2 border-b-2 border-zinc-800 last:border-none"
+                className="rounded-2xl border-b-2 border-t-2 border-zinc-800 bg-main last:border-none"
               >
-                <td className="text-center px-4 py-2">
+                <td className="px-4 py-2 text-center">
                   {crypto.marketCapRank}
                 </td>
                 <td className="px-4 py-2">
                   <div className="flex items-center gap-3">
                     <Image
-                      className="w-8 h-8"
+                      className="h-8 w-8"
                       src={`${crypto.image}`}
                       alt={crypto.ticker}
                       width={20}
@@ -198,15 +198,15 @@ export default function Markets() {
                     </p>
                   </div>
                 </td>
-                <td className="text-right px-4 py-2">{crypto.price}</td>
+                <td className="px-4 py-2 text-right">{crypto.price}</td>
                 <td
                   className={`${
                     crypto.change < 0 ? 'text-redMain' : 'text-greenMain'
-                  } font-semibold text-right px-4 py-2`}
+                  } px-4 py-2 text-right font-semibold`}
                 >
                   {crypto.change}%
                 </td>
-                <td className="text-right px-4 py-2">
+                <td className="px-4 py-2 text-right">
                   ${crypto.marketCap.toLocaleString()}
                 </td>
                 <td className="flex justify-center px-4 py-2">
@@ -216,7 +216,7 @@ export default function Markets() {
                   <Link href={'markets'} className="flex justify-center">
                     <PiArrowRightBold
                       className={
-                        'w-8 h-8 text-zinc-500 hover:text-zinc-400 hover:shadow-md hover:transition hover:duration-300 rounded-full p-1 bg-zinc-900'
+                        'h-8 w-8 rounded-full bg-zinc-900 p-1 text-zinc-500 hover:text-zinc-400 hover:shadow-md hover:transition hover:duration-300'
                       }
                     />
                   </Link>

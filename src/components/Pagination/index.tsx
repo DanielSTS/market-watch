@@ -31,12 +31,12 @@ export default function Pagination({
   }
 
   return (
-    <ul className="flex sm:justify-end items-center gap-2 flex-wrap">
+    <ul className="flex flex-wrap items-center gap-2 sm:justify-end">
       <li>
         <button
           onClick={() => onPageChange(current - 1)}
           disabled={current === 1}
-          className="px-3 py-1 bg-zinc-300 text-zinc-700 rounded hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-500 disabled:text-zinc-900"
+          className="rounded bg-zinc-300 px-3 py-1 text-zinc-700 hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-500 disabled:text-zinc-900"
         >
           {'<'}
         </button>
@@ -51,7 +51,7 @@ export default function Pagination({
                 page === current
                   ? 'bg-greenMain text-white'
                   : 'bg-zinc-300 text-zinc-700'
-              } hover:bg-greenHover hover:text-white rounded hover:transition hover:duration-300`}
+              } rounded hover:bg-greenHover hover:text-white hover:transition hover:duration-300`}
             >
               {page}
             </button>
@@ -61,7 +61,7 @@ export default function Pagination({
         <button
           onClick={() => onPageChange(current + 1)}
           disabled={current === pages}
-          className="px-3 py-1 bg-zinc-300 text-zinc-700 rounded hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-500 disabled:text-zinc-900"
+          className="rounded bg-zinc-300 px-3 py-1 text-zinc-700 hover:bg-zinc-400 hover:transition hover:duration-300 disabled:bg-zinc-500 disabled:text-zinc-900"
         >
           {'>'}
         </button>

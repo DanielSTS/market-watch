@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-800 flex flex-col gap-2 py-16 items-center justify-around">
+    <footer className="flex flex-col items-center justify-around gap-2 border-t border-zinc-800 py-16">
       <Image
-        className={'w-44 h-10'}
+        className={'h-10 w-44'}
         src={'logo.svg'}
         alt="Logo"
         width={140}

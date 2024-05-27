@@ -62,16 +62,16 @@ export default function CorrelationMatrix() {
   }
 
   return (
-    <section className="py-12 flex items-center justify-center">
+    <section className="flex items-center justify-center py-12">
       <div className="overflow-x-auto rounded-md border border-zinc-800">
         <table className="table-fixed rounded-lg text-center">
           <thead>
             <tr>
-              <th className="px-4 py-2 bg-main text-white font-semibold"></th>
+              <th className="bg-main px-4 py-2 font-semibold text-white"></th>
               {assets.map(asset => (
                 <th
                   key={asset}
-                  className="px-4 py-2 bg-main text-white font-medium"
+                  className="bg-main px-4 py-2 font-medium text-white"
                 >
                   {asset.split('-')[0]}
                 </th>
@@ -82,7 +82,7 @@ export default function CorrelationMatrix() {
             {assets.map((asset1, index1) => (
               <tr key={asset1}>
                 <td
-                  className={`px-2 py-2 bg-main ${
+                  className={`bg-main px-2 py-2 ${
                     index1 === 0 ? 'border-t-0' : ''
                   } font-medium`}
                 >
@@ -99,7 +99,7 @@ export default function CorrelationMatrix() {
                     <td
                       key={asset2}
                       className={
-                        'px-4 py-2 w-20 h-10 text-white' +
+                        'h-10 w-20 px-4 py-2 text-white' +
                         (index2 === 0 ? ' border-l-0 ' : '  ') +
                         getColorForCorrelation(correlation) +
                         ' hover:bg-opacity-70 hover:shadow-lg'

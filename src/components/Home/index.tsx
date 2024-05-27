@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <section
         className={
-          'flex flex-col gap-4 px-12 pt-12 items-center justify-around text-center'
+          'flex flex-col items-center justify-around gap-4 px-12 pt-12 text-center'
         }
       >
         <h1 className={'text-5xl font-bold'}>Suas Criptos. Seu Controle.</h1>
@@ -18,7 +18,7 @@ export default function Home() {
         <Link
           href={'markets'}
           className={
-            'bg-greenMain rounded-2xl px-12 py-3 text-xl font-semibold mt-12 hover:bg-greenHover hover:shadow-md hover:transition hover:duration-300'
+            'mt-12 rounded-2xl bg-greenMain px-12 py-3 text-xl font-semibold hover:bg-greenHover hover:shadow-md hover:transition hover:duration-300'
           }
         >
           Explorar

@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body
         className={
-          'bg-background text-white px-6 md:px-24 mx-auto xl:max-w-screen-2xl'
+          'mx-auto bg-background px-6 text-white md:px-24 xl:max-w-screen-2xl'
         }
       >
         <MenuMobileContextProvider>{<Header />}</MenuMobileContextProvider>
