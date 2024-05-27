@@ -1,0 +1,57 @@
+{
+  "_id": {
+    "$oid": "651c41518e0dd4300e6ca3ad"
+  },
+  "id": "0d0ce488-07ab-451f-ab25-5c248d61da0b",
+  "startTime": {
+    "$date": "2022-07-18T03:00:00.000Z"
+  },
+  "endTime": {
+    "$date": "2022-08-19T15:00:00.000Z"
+  },
+  "timeframe": {
+    "value": "1h"
+  },
+  "instrument": {
+    "symbol": "btcbrl",
+    "exchange": {
+      "value": "foxbit"
+    },
+    "minQuantity": 1,
+    "priceIncrement": 0.01
+  },
+  "strategyType": "bollinger-bands",
+  "strategyParams": {},
+  "state": "EXECUTED",
+  "positions": [
+    {
+      "_state": "CLOSED",
+      "enterTrade": {
+        "price": 116559.6661,
+        "time": {
+          "$date": "2023-10-03T16:36:14.792Z"
+        },
+        "quantity": 1
+      },
+      "id": "3b15149e-0409-45ca-8634-d92a417c28e3",
+      "exitTrade": {
+        "price": 122474.8844,
+        "time": {
+          "$date": "2023-10-03T16:36:14.793Z"
+        },
+        "quantity": 1
+      }
+    },
+    {
+      "_state": "OPEN",
+      "enterTrade": {
+        "price": 114330.5256,
+        "time": {
+          "$date": "2023-10-03T16:36:14.814Z"
+        },
+        "quantity": 1
+      },
+      "id": "080d1f72-967a-4857-ab33-3dec080eb65a"
+    }
+  ]
+}
